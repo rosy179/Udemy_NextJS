@@ -1,12 +1,13 @@
 .header {
     top: 0;
-    width: 100%;
+    width: 1024px;
     padding: 1rem;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #ece1fa;
+    gap: 500px;
 }
 
 .logo {
@@ -14,14 +15,14 @@
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    color: #ece1fa;
+    color: #c49ef6;
 }
 
 .button {
     font: inherit;
     border: none;
     background-color: #ece1fa;
-    color: #3a0ca3;
+    color: #ff68ac;
     padding: 0.5rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;

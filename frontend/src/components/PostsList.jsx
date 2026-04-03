@@ -43,7 +43,10 @@ function PostsList({ isPosting, onStopPosting }) {
         </Modal>
       )}
       {posts.length === 0 && (
-        <div style={{ textAlign: "center", color: "gray" }}>No posts yet!</div>
+        <div style={{ textAlign: "center", color: "gray" }}>
+          <h3>No posts yet!</h3>
+          <p>Let's be the first to share something!</p>
+        </div>
       )}
       {posts.length > 0 && (
         <div className={classes.list}>
