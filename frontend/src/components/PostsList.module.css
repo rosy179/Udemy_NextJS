@@ -1,9 +1,8 @@
 .list {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    /* tôi muốn làm thành từng hàng mỗi hàng tối đa 5 bài posts */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 2rem;
     justify-content: center;
-    padding: 1rem;
-    list-style: none;
 }
