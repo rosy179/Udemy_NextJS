@@ -17,10 +17,11 @@ function PostsList() {
           {posts.map((post) => (
             <div
               key={post.author + post.content}
+              id={post.id}
               className={classes.animatedPost}
               // style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <Post author={post.author} content={post.content} />
+              <Post author={post.author} content={post.content} id={post.id} />
             </div>
           ))}
         </div>
