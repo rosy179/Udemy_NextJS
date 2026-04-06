@@ -1,47 +1,11 @@
-import { useState } from "react";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
-import NewPost from "./NewPost";
-import Modal from "./Modal";
-function PostsList({ isPosting, onStopPosting }) {
-  const [posts, setPosts] = useState([]);
-  const [enteredAuthor, setEnteredAuthor] = useState("Name");
-  const [enteredContent, setEnteredContent] = useState("Something...");
-
-  function addPostHandler(postData) {
-    setPosts([postData, ...posts]);
-  }
-
-  function changeAuthorHandler(event) {
-    setEnteredAuthor(event.target.value);
-  }
-
-  function changeContentHandler(event) {
-    setEnteredContent(event.target.value);
-  }
-
-  function SavePostHandler(event) {
-    event.preventDefault();
-    const postData = {
-      author: enteredAuthor,
-      content: enteredContent,
-    };
-    addPostHandler(postData);
-    onStopPosting();
-  }
+import { useLoaderData } from "react-router-dom";
+function PostsList() {
+  const posts = useLoaderData();
 
   return (
     <>
-      {isPosting && (
-        <Modal onClose={onStopPosting}>
-          <NewPost
-            onChangeAuthor={changeAuthorHandler}
-            onChangeContent={changeContentHandler}
-            onCancel={onStopPosting}
-            onSubmitPost={SavePostHandler}
-          />
-        </Modal>
-      )}
       {posts.length === 0 && (
         <div style={{ textAlign: "center", color: "gray" }}>
           <h3>No posts yet!</h3>
@@ -49,13 +13,15 @@ function PostsList({ isPosting, onStopPosting }) {
         </div>
       )}
       {posts.length > 0 && (
-        <div className={classes.list}>
+        <div className={classes.posts}>
           {posts.map((post) => (
-            <Post
+            <div
               key={post.author + post.content}
-              author={post.author}
-              content={post.content}
-            />
+              className={classes.animatedPost}
+              // style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <Post author={post.author} content={post.content} />
+            </div>
           ))}
         </div>
       )}
