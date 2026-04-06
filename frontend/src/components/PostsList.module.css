@@ -1,8 +1,33 @@
 .list {
-    /* tôi muốn làm thành từng hàng mỗi hàng tối đa 5 bài posts */
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
     margin: 2rem;
     justify-content: center;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.posts {
+  list-style: none;
+  max-width: 50rem;
+  margin: 1rem auto;
+  padding: 1rem 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 30%);
+  justify-content: center;
+}
+
+.animatedPost {
+  animation: slideUpFadeIn 0.8s ease-out forwards;
 }
